@@ -18,5 +18,6 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Yoooo whats up '  + str(message.author) + '!')
+        # ay whats good my slime
 
 client.run(os.getenv('TOKEN'))
