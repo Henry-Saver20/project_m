@@ -20,13 +20,14 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-
-    if message.content.startswith('$hello'):
-        await message.channel.send('Yoooo whats up '  + str(message.author) + '!')
     await client.process_commands(message)
 
+@client.command(name="hello", brief="Hola amigo!")
+async def say_hello(ctx):
+    await ctx.channel.send('Yoooo whats up '  + str(ctx.author) + '!')
 
-@client.command(name="letsgo")
+
+@client.command(name="letsgo", brief="HA")
 async def play_audio(ctx):
         print("called")
         # Gets voice channel of message author
@@ -47,7 +48,7 @@ async def play_audio(ctx):
         # Delete command after the audio is done playing.
         await ctx.message.delete()
 
-@client.command(name="sloppy")
+@client.command(name="sloppy", brief="LuthorCorp101")
 async def play_audio(ctx):
         print("called")
         # Gets voice channel of message author
@@ -67,6 +68,7 @@ async def play_audio(ctx):
             await ctx.send(str(ctx.author.name) + "is not in a channel.")
         # Delete command after the audio is done playing.
         await ctx.message.delete()
+
 
 client.run(os.getenv('TOKEN'))
 
