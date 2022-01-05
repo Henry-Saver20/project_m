@@ -36,7 +36,7 @@ async def play_audio(ctx):
         if voice_channel != None:
             channel = voice_channel.name
             vc = await voice_channel.connect()
-            p = r".\sounds\letsGo.mp3"
+            p = r".\sounds\output.aac"
             exe_p = r".\ffmpeg\bin\ffmpeg.exe"
             vc.play(discord.FFmpegPCMAudio(executable=exe_p, source=p))
             # Sleep while audio is playing.
@@ -59,6 +59,7 @@ async def play_audio(ctx):
             vc = await voice_channel.connect()
             p = r".\sounds\sloppy.mp3"
             exe_p = r".\ffmpeg\bin\ffmpeg.exe"
+
             vc.play(discord.FFmpegPCMAudio(executable=exe_p, source=p))
             # Sleep while audio is playing.
             while vc.is_playing():
